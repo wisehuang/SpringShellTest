@@ -1,21 +1,41 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'idea'
+    id 'application'
+}
+
 group 'com.line.pay'
 version '1.0'
 
-apply plugin: 'java'
-apply plugin: 'application'
-
-sourceCompatibility = 1.8
+sourceCompatibility = '11'
 
 mainClassName = 'com.line.pay.springshelltest.SpringShellTest'
 
 repositories {
     mavenCentral()
     maven {
-        url 'https://repo.spring.io/libs-milestone'
+        url 'https://repo.spring.io/milestone'
     }
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile 'org.springframework.shell:spring-shell-starter:2.0.0.M2'
+    compile group: 'org.springframework.shell', name: 'spring-shell-starter', version: '2.0.1.RELEASE'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.line.pay.springshelltest.SpringShellTest'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+test {
+    useJUnitPlatform()
 }
