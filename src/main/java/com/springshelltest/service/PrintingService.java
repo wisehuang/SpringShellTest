@@ -1,4 +1,4 @@
-package com.line.pay.springshelltest;
+package com.springshelltest.service;
 
 import org.springframework.stereotype.Service;
 

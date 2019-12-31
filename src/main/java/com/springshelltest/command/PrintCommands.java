@@ -1,5 +1,6 @@
-package com.line.pay.springshelltest;
+package com.springshelltest.command;
 
+import com.springshelltest.service.PrintingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;

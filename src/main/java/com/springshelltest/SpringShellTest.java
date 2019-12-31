@@ -1,4 +1,4 @@
-package com.line.pay.springshelltest;
+package com.springshelltest;
 
 import org.jline.utils.AttributedString;
 import org.jline.utils.AttributedStyle;
